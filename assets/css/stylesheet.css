@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'EuclidCircular-Regular';
+    src: url('../../public/font/EuclidCircular-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'EuclidCircular-Bold';
+    src: url('../../public/font/EuclidCircular-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'EuclidCircular-Light';
+    src: url('../../public/font/EuclidCircular-Light.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}

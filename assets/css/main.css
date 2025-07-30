@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-euclid;
+        @apply bg-magenta-950;
+    }
+    h1 {
+        @apply text-[2rem] text-naturals-light;
+    }
+    h2 {
+        @apply text-[1.75rem] text-naturals-light;
+    }
+    h3 {
+        @apply text-[1.5rem] text-naturals-light;
+    }
+    h4 {
+        @apply text-[1.25rem] text-naturals-light;
+    }
+}
+
+@layer components {
+    .text-headline {
+        @apply text-[1.125rem] text-naturals-light;
+    }
+    .text-body {
+        @apply text-[1rem] text-naturals-light;
+    }
+    .text-subtitle {
+        @apply text-[0.875rem] text-naturals-light;
+    }
+    .text-caption {
+        @apply text-[0.75rem] text-naturals-light;
+    }
+    .text-footnote {
+        @apply text-[1.25rem] text-naturals-light;
+    }
+
+    /*GRADIENT*/
+    .gradient-border-departament {
+        border: 0.1rem solid transparent;
+        background-image: linear-gradient(#3A1648, #2B0E37), linear-gradient(180deg, #5A1D72 0%, #1D0925 100%);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow: 0 0 1.25rem 0 #11031726;
+    }
+    .box-shadow-button {
+        box-shadow: 0 0 1rem 0 #C813BCB2;
+    }
+    .bg-active-button {
+        background: linear-gradient(90deg, #C813BC 0%, #8620AF 100%);
+    }
+}
+
+
+@theme {
+    --font-euclid: "EuclidCircular-Regular", sans-serif;
+    --font-euclid-bold: "EuclidCircular-Bold", sans-serif;
+    --font-euclid-light: "EuclidCircular-Light", sans-serif;
+
+    --color-gray: #D7D7D7;
+
+    /*BLUE*/
+    --color-blue-50: #E6EEFF;
+    --color-blue-100: #BDD2FF;
+    --color-blue-200: #93B5FF;
+    --color-blue-300: #729EFF;
+    --color-blue-400: #5188FF;
+    --color-blue-500: #3071FF;
+    --color-blue-600: #285FD6;
+    --color-blue-700: #214DAD;
+    --color-blue-800: #193B85;
+    --color-blue-900: #11295C;
+
+    /*MAGENTA*/
+    --color-magenta-50: #FFD3FC;
+    --color-magenta-100: #EBAAE7;
+    --color-magenta-200: #E284DC;
+    --color-magenta-300: #DA5FD1;
+    --color-magenta-400: #D139C7;
+    --color-magenta-500: #C813BC;
+    --color-magenta-600: #A8109E;
+    --color-magenta-700: #880D80;
+    --color-magenta-800: #680A62;
+    --color-magenta-900: #480744;
+    --color-magenta-950: #1D0925;
+
+    /*MAGENTA*/
+    --color-naturals-light: #ffffff;
+    --color-naturals-50: #FAFAFA;
+    --color-naturals-100: #DAD8D8;
+    --color-naturals-200: #AFAFAF;
+    --color-naturals-300: #979797;
+    --color-naturals-400: #7E7E7E;
+    --color-naturals-500: #666666;
+    --color-naturals-600: #565656;
+    --color-naturals-700: #454545;
+    --color-naturals-800: #353535;
+    --color-naturals-900: #222222;
+
+    /*EFFECTS*/
+    --color-effects-magentaShadow: #C813BC;
+    --color-effects-blueShadow: #3071FF;
+    --color-alias: #700D69;
+}

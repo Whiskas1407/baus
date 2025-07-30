@@ -14,5 +14,12 @@
     {
       "path": "./.nuxt/tsconfig.node.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "moduleResolution": "bundler", // ✅ или 'node16' / 'nodenext'
+    "types": ["tailwindcss"],      // ✅ (чтобы он видел типы)
+    "module": "ESNext",            // желательно, если не стоит
+    "target": "ESNext",            // желательно
+    "strict": true
+  }
 }
