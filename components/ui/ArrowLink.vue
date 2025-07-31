@@ -11,7 +11,7 @@ defineProps({
 })
 </script>
 <template>
-  <NuxtLink :to="link" class="flex items-center gap-4">
+  <NuxtLink :to="link" class="flex items-center gap-4 cursor-pointer">
     <p class="text-caption text-blue-500 uppercase">{{ text }}</p>
     <img src="/icons/arrow-blue.svg" alt="arrow" />
   </NuxtLink>

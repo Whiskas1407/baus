@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import departament1 from '@/public/images/departament-1.png'
 import departament2 from '@/public/images/departament-2.png'
-
+definePageMeta({ title: 'Департаменти блогерів' })
 let items = [
   {
     id: 1,
@@ -75,12 +75,12 @@ let items = [
         v-for="item of items"
         :key="item.id"
         to="/departaments/id"
-        class="rounded-[1.25rem] relative z-1 cursor-pointer gradient-border-departament"
+        class="group rounded-[1.25rem] relative z-1 cursor-pointer gradient-border-departament"
     >
       <div class="py-5 px-6 flex items-start gap-5">
         <img :src="item.image" alt="departament">
         <div class="flex flex-col items-start gap-1">
-          <h3>{{ item.title }}</h3>
+          <h3 class="group-hover:text-magenta-600">{{ item.title }}</h3>
           <p class="text-body text-naturals-100 leading-[1.3rem]">
             {{ item.subtitle }}
           </p>

@@ -9,6 +9,9 @@ import news4 from '@/public/images/news-4.png'
 import news5 from '@/public/images/news-5.png'
 import news6 from '@/public/images/news-6.png'
 import news7 from '@/public/images/news-7.png'
+import Alert from "../../../components/modals/alert.vue";
+
+definePageMeta({ title: 'Департамент по роботі з блогерами' })
 
 let activeTab = ref(1)
 
@@ -85,6 +88,13 @@ let items_party = [
   },
 ]
 
+let modalStatus = ref(false)
+let statusApplication = ref(false)
+
+function eventDepartament() {
+  modalStatus.value = true
+  statusApplication.value = true
+}
 
 function changeTab(tab: number) {
   activeTab.value = tab
@@ -116,7 +126,19 @@ function changeTab(tab: number) {
             </div>
           </div>
         </div>
-        <ArrowLink text="заявка на участь"/>
+        <div>
+          <Alert :model-value="modalStatus">
+            <h3>Заявка на участь прийнята</h3>
+            <p class="text-body">Вашу заявку буде розглянуто у найближчий час</p>
+            <Button background="magenta-500" @click="modalStatus = false">
+              ОК
+            </Button>
+          </Alert>
+        </div>
+        <div @click="eventDepartament">
+          <ArrowLink v-if="!statusApplication" text="заявка на участь"/>
+          <p v-else class="text-subtitle py-2 px-3 rounded-full bg-effects-blueShadow">Заявка на розгляді</p>
+        </div>
       </div>
       <p class="text-body text-naturals-100 pt-4 leading-[1.25rem]">Ми є серцем взаємодії з інфлюенсерами та блогерами, створюючи мости між нашим брендом та їхньою аудиторією.
         Наш департамент фокусується на вибудовуванні стратегічних, довгострокових партнерств з лідерами думок на всіх
@@ -137,7 +159,9 @@ function changeTab(tab: number) {
           <p class="text-body text-naturals-100">@MashaVibe</p>
         </div>
       </div>
-      <ArrowLink text="ПРОФІЛЬ БЛОГЕРА" />
+      <NuxtLink to="/blogers/id">
+        <ArrowLink text="ПРОФІЛЬ БЛОГЕРА" />
+      </NuxtLink>
     </div>
     <div class="pt-7 flex items-center justify-between w-full">
       <Button :active="activeTab === 1" @click="changeTab(1)">
@@ -151,22 +175,23 @@ function changeTab(tab: number) {
       </Button>
     </div>
     <div class="flex flex-col gap-4 pt-12 w-full">
-      <div
-          class="flex items-center w-full gap-8 border-b border-alias pb-4 cursor-pointer"
+      <NuxtLink
+          to="/departaments/id/news"
+          class="group flex items-center w-full gap-8 border-b border-alias pb-4 cursor-pointer"
           v-if="activeTab === 1"
           v-for="item of items_news"
           :key="item.id"
       >
         <img class="rounded-2xl w-[16.6rem] h-[12.5rem] object-cover" :src="item.image" alt="news">
         <div class="flex flex-col gap-1">
-          <h3>{{ item.title }}</h3>
+          <h3 class="group-hover:text-magenta-600">{{ item.title }}</h3>
           <p class="text-body">{{ item.subtitle }}</p>
           <p class="text-headline text-magenta-600">{{ item.date }}</p>
         </div>
-      </div>
+      </NuxtLink>
       <NuxtLink
-          to="/departaments/id/news"
-          class="flex items-center gap-8 pb-4 border-b border-alias"
+          to="/departaments/id/party"
+          class="group flex items-center gap-8 pb-4 border-b border-alias"
           v-if="activeTab === 2"
           v-for="item of items_party"
           :key="item.id"
@@ -194,7 +219,7 @@ function changeTab(tab: number) {
             </div>
             <p class="text-headline" :class="item.status === 3 ? 'text-naturals-400' : 'text-magenta-600'">09 червня 2025 • 17:00 - 19:00</p>
           </div>
-          <h3>{{ item.title }}</h3>
+          <h3 class="group-hover:text-magenta-600">{{ item.title }}</h3>
           <p class="text-body">
             {{ item.subtitle }}
           </p>
@@ -214,16 +239,18 @@ function changeTab(tab: number) {
       <div
           v-if="activeTab === 3"
           v-for="item of 5"
-          class="flex items-center w-full justify-between border-b border-alias pb-4"
+          class="group flex items-center w-full justify-between border-b border-alias pb-4"
       >
         <div class="flex items-center gap-5">
           <img class="w-[4rem] h-[4rem] object-cover rounded-full" src="@/public/images/bloger-1.png" alt="bloger">
           <div class="flex flex-col items-start">
-            <h3>Марія Ткаченко</h3>
+            <h3 class="group-hover:text-magenta-600">Марія Ткаченко</h3>
             <p class="text-body text-naturals-100">@MashaVibe</p>
           </div>
         </div>
-        <ArrowLink text="ПРОФІЛЬ БЛОГЕРА" />
+        <NuxtLink to="/blogers/id">
+          <ArrowLink text="ПРОФІЛЬ БЛОГЕРА" />
+        </NuxtLink>
       </div>
     </div>
     <div class="flex items-center justify-center pt-8 gap-4">

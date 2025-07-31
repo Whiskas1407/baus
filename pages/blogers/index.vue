@@ -1,10 +1,8 @@
 <script setup lang="ts">
 definePageMeta({
-  title: 'Головна'
+  title: 'Усі блогери'
 })
 </script>
 <template>
-  <div class="flex">
-
-  </div>
+  <h1>Blogers</h1>
 </template>
