@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import {ref, reactive} from 'vue'
 import Button from "../../../components/ui/Button.vue";
 import RadioButton from "../../../components/ui/RadioButton.vue";
 import ArrowLink from "../../../components/ui/ArrowLink.vue";
+import Alert from "../../../components/modals/alert.vue";
+import InputText from "../../../components/ui/InputText.vue";
+import InputTextArea from "../../../components/ui/InputTextArea.vue";
 
 definePageMeta({
   title: 'Марія Ткаченко (@MashaVibe)'
@@ -81,6 +84,21 @@ let advertisingActive = ref(1)
 
 function changeActiveAdvertising(id: number) {
   advertisingActive.value = id
+}
+
+let form = reactive({
+  name: '',
+  contactName: '',
+  contactPhone: '',
+  description: '',
+})
+
+let showForm = ref(false)
+let showFormSuccess = ref(false)
+
+function SendForm() {
+  showForm.value = false
+  showFormSuccess.value = true
 }
 
 </script>
@@ -167,10 +185,61 @@ function changeActiveAdvertising(id: number) {
           </div>
           <div class="flex flex-col gap-2">
             <p class="text-headline font-euclid-bold">від {{ item.price }} грн</p>
-            <ArrowLink text="замовити" v-if="item.id === advertisingActive" />
+            <ArrowLink text="замовити" v-if="item.id === advertisingActive" @click="showForm = true" />
           </div>
         </div>
       </div>
+      <Alert :model-value="showForm">
+        <div class="flex flex-col items-start gap-5">
+          <div class="flex items-start justify-between w-full gap-4">
+            <div class="flex flex-col items-start gap-2 w-[24rem]">
+              <p class="text-headline">Реклама в сторіс (1-2 слайди)</p>
+              <p class="text-subtitle leading-[1.1rem]">
+                This is my behind the scenes package. If you're looking for chic, modern, well lit, clean,
+                compelling content to have all to yourself - this is your package! I will create 1 Video with no filter +
+                3 Hi-Res Photos. This can be product photography, or lifestyle - whichever you prefer! Additional Hi-Res
+                photos can be purchased at $50 ea. Want to create something special? Let's work together!
+              </p>
+            </div>
+            <img src="/icons/cross_icon.svg" alt="close" @click="showForm = false">
+          </div>
+          <InputText
+              :modelValue="form.name"
+              @update:modelValue="form.name = $event"
+              textPlaceholder="Назва компанії"
+              label="Назва компанії"
+          />
+          <InputText
+              :modelValue="form.contactName"
+              @update:modelValue="form.contactName = $event"
+              textPlaceholder="Контактна особа"
+              label="Контактна особа (ПІБ)"
+          />
+          <InputText
+              :modelValue="form.contactPhone"
+              @update:modelValue="form.contactPhone = $event"
+              textPlaceholder="+38 XXX XXX XX XX"
+              label="Контакт для зв'язку"
+          />
+          <InputTextArea
+              text-placeholder="Опишіть ваші побажання"
+              label="Побажання"
+          />
+          <Button
+              :active="form.name.length > 0 && form.contactName.length > 0 && form.contactPhone.length > 0"
+              :disabled="form.name.length < 1 || form.contactName.length < 1 || form.contactPhone.length < 1"
+              class="w-full"
+              @click="SendForm"
+          >
+            Відіслати
+          </Button>
+        </div>
+      </Alert>
+      <Alert :model-value="showFormSuccess">
+        <h3>Заявка на послугу прийнята</h3>
+        <p class="text-body">Вашу заявку буде розглянуто у найближчий час</p>
+        <Button active @click="showFormSuccess = false">OK</Button>
+      </Alert>
     </div>
     <div v-if="activeTab === 2"></div>
   </div>

@@ -1,7 +1,7 @@
 <template>
-  <button
+  <div
       @click="toggle"
-      class="w-[1.5rem] h-[1.5rem] rounded-full border-1 bg-transparent border-alias transition-colors duration-300"
+      class="w-[1.5rem] h-[1.5rem] rounded-full border-1 bg-transparent border-alias transition-colors duration-300 flex items-center justify-center"
   >
     <button
         @click="toggle"
@@ -9,7 +9,7 @@
         :class="isChecked ? 'bg-fuchsia-600 border-alias' : 'bg-transparent'"
     >
     </button>
-  </button>
+  </div>
 </template>
 
 <script setup>

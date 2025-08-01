@@ -6,7 +6,8 @@
         @click.self="emit('update:modelValue', false)"
     >
       <div
-          class="bg-magenta-950 border border-alias rounded-2xl px-12 py-5 flex flex-col items-center gap-2 max-w-full"
+          class="bg-magenta-950 border border-alias rounded-2xl px-12 py-5 flex flex-col items-center gap-2 max-w-full
+               max-h-[90vh] overflow-y-auto"
       >
         <slot />
       </div>
