@@ -4,9 +4,9 @@ definePageMeta({
 })
 </script>
 <template>
-  <div class="w-full flex flex-col items-center justify-center py-10 px-[16rem] relative z-1">
-    <div class="flex items-center justify-between w-full">
-      <div class="flex items-center gap-5">
+  <div class="w-full flex flex-col items-center justify-center py-10 px-[16rem] max-sm:px-4 relative z-1">
+    <div class="flex items-center justify-between w-full max-sm:flex-col max-sm:items-start max-sm:gap-2">
+      <div class="flex items-center gap-5 max-sm:flex-col max-sm:items-start">
         <div class="flex items-center gap-3">
           <img
               class="bg-effects-blueShadow p-2 rounded-full w-[2rem]"

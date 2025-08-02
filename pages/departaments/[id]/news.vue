@@ -4,7 +4,7 @@ definePageMeta({
 })
 </script>
 <template>
-  <div class="w-full flex flex-col items-center justify-center py-10 px-[16rem] relative z-1">
+  <div class="w-full flex flex-col items-center justify-center py-10 px-[16rem] max-sm:px-4 relative z-1">
     <div class="flex items-center justify-between w-full">
       <div class="flex items-center gap-5">
         <p class="text-headline text-magenta-600">09 червня 2025 • 17:00 - 19:00</p>
@@ -26,7 +26,7 @@ definePageMeta({
       <br> <br>
       Маючи 162,2 мільйона підписників, він посідає перше місце за їхньою кількістю в TikTok. Крім того, Ламе є послом доброї волі ЮНІСЕФ.
     </p>
-    <div class="flex items-center justify-between pt-8 w-full">
+    <div class="flex items-center justify-between pt-8 w-full max-sm:flex-col max-sm:gap-4">
       <div class="relative">
         <img class="w-[18.2rem] h-[13.6rem] object-cover rounded-2xl" src="@/public/images/news-big-image-2.png" alt="image">
         <img class="absolute bottom-2 right-2 bg-icon p-2 rounded-full cursor-pointer" src="/icons/ic_outline-contacts.svg" alt="ic">

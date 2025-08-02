@@ -101,10 +101,10 @@ function changeTab(tab: number) {
 }
 </script>
 <template>
-  <div class="w-full flex flex-col items-center justify-center py-10 px-[16rem] relative z-1">
+  <div class="w-full flex flex-col items-center justify-center py-10 px-[16rem] max-sm:px-4 relative z-1">
     <div class="flex flex-col pb-8 border-b border-alias">
-      <div class="flex items-center w-full justify-between">
-        <div class="flex items-center gap-6">
+      <div class="flex items-center w-full justify-between max-sm:flex-col max-sm:items-start max-sm:gap-2">
+        <div class="flex items-center gap-6 max-sm:flex-col max-sm:items-start">
           <img class="w-[5rem]" src="@/public/images/departament-1.png" alt="dep-1">
           <div class="flex flex-col items-start gap-1">
             <h2>ДЕПАРТАМЕНТ ПО РОБОТІ З БЛОГЕРАМИ</h2>
@@ -150,7 +150,7 @@ function changeTab(tab: number) {
         залучають нових клієнтів, але й забезпечують високий ROI та будують довіру до нашого продукту чи послуги.
       </p>
     </div>
-    <div class="flex items-center w-full justify-between py-8 border-b border-alias">
+    <div class="flex items-center w-full justify-between py-8 border-b border-alias max-sm:flex-col max-sm:items-start max-sm:gap-4">
       <div class="flex items-center gap-5">
         <img class="w-[5rem] h-[5rem] object-cover rounded-full" src="@/public/images/bloger-1.png" alt="bloger">
         <div class="flex flex-col items-start">
@@ -163,7 +163,7 @@ function changeTab(tab: number) {
         <ArrowLink text="ПРОФІЛЬ БЛОГЕРА" />
       </NuxtLink>
     </div>
-    <div class="pt-7 flex items-center justify-between w-full">
+    <div class="pt-7 flex items-center justify-between w-full max-sm:overflow-scroll">
       <Button :active="activeTab === 1" @click="changeTab(1)">
         Новини департаменту
       </Button>
@@ -177,12 +177,12 @@ function changeTab(tab: number) {
     <div class="flex flex-col gap-4 pt-12 w-full">
       <NuxtLink
           to="/departaments/id/news"
-          class="group flex items-center w-full gap-8 border-b border-alias pb-4 cursor-pointer"
+          class="group flex items-center w-full gap-8 border-b border-alias pb-4 cursor-pointer max-sm:flex-col"
           v-if="activeTab === 1"
           v-for="item of items_news"
           :key="item.id"
       >
-        <img class="rounded-2xl w-[16.6rem] h-[12.5rem] object-cover" :src="item.image" alt="news">
+        <img class="rounded-2xl w-[16.6rem] h-[12.5rem] object-cover max-sm:w-full" :src="item.image" alt="news">
         <div class="flex flex-col gap-1">
           <h3 class="group-hover:text-magenta-600">{{ item.title }}</h3>
           <p class="text-body">{{ item.subtitle }}</p>
@@ -191,14 +191,14 @@ function changeTab(tab: number) {
       </NuxtLink>
       <NuxtLink
           to="/departaments/id/party"
-          class="group flex items-center gap-8 pb-4 border-b border-alias"
+          class="group flex items-center gap-8 pb-4 border-b border-alias max-sm:flex-col"
           v-if="activeTab === 2"
           v-for="item of items_party"
           :key="item.id"
       >
-        <img class="rounded-2xl w-[16.6rem] h-[12.5rem] object-cover" :src="item.image" alt="news">
+        <img class="rounded-2xl w-[16.6rem] h-[12.5rem] object-cover max-sm:w-full" :src="item.image" alt="news">
         <div class="flex flex-col gap-2">
-          <div class="flex items-center justify-between w-full gap-4">
+          <div class="flex items-center justify-between w-full gap-4 max-sm:flex-col max-sm:gap-4 max-sm:items-start">
             <div class="flex items-center gap-2">
               <img
                   v-if="item.status === 1"
@@ -223,7 +223,7 @@ function changeTab(tab: number) {
           <p class="text-body">
             {{ item.subtitle }}
           </p>
-          <div class="flex items-center justify-between">
+          <div class="flex items-center justify-between max-sm:flex-col max-sm:gap-2 max-sm:items-start">
             <div class="flex gap-3 items-center" v-if="item.status === 1">
               <img src="/icons/link_icon-blue.svg" alt="link">
               <p class="text-caption uppercase text-effects-blueShadow">доєднатись онлайн</p>

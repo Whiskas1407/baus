@@ -70,14 +70,14 @@ let items = [
 ]
 </script>
 <template>
-  <div class="w-full flex flex-col items-center justify-center py-8 px-[16rem] gap-5">
+  <div class="w-full flex flex-col items-center justify-center py-8 px-[16rem] max-sm:px-4 gap-5">
     <NuxtLink
         v-for="item of items"
         :key="item.id"
         to="/departaments/id"
         class="group rounded-[1.25rem] relative z-1 cursor-pointer gradient-border-departament"
     >
-      <div class="py-5 px-6 flex items-start gap-5">
+      <div class="py-5 px-6 max-sm:px-4 flex items-start gap-5 max-sm:flex-col">
         <img :src="item.image" alt="departament">
         <div class="flex flex-col items-start gap-1">
           <h3 class="group-hover:text-magenta-600">{{ item.title }}</h3>

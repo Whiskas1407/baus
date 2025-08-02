@@ -103,10 +103,10 @@ function SendForm() {
 
 </script>
 <template>
-  <div class="w-full relative z-1 flex flex-col items-start justify-center py-8 px-[16rem] gap-5">
-    <div class="flex items-end gap-9">
+  <div class="w-full relative z-1 flex flex-col items-start justify-center py-8 px-[16rem] max-sm:px-4 gap-5">
+    <div class="flex items-end gap-9 max-sm:flex-col max-sm:items-center">
       <img src="@/public/images/bloger-avatar.png" alt="avatar" />
-      <div class="flex flex-col items-start justify-start gap-2">
+      <div class="flex flex-col items-start justify-start gap-2 max-sm:flex-col max-sm:items-center max-sm:gap-4">
         <p class="text-subtitle py-1 px-2 rounded-full bg-effects-blueShadow">Мода і краса</p>
         <h1 class="font-euclid-bold">Марія Ткаченко</h1>
         <p class="text-headline">@MashaVibe</p>
@@ -140,7 +140,7 @@ function SendForm() {
       Для мене важливо створювати простір, де кожен може знайти щось для себе — від щоденного натхнення до практичних
       порад. Долучайся, якщо хочеш говорити про красу щиро та з любов’ю 💄✨
     </p>
-    <div class="flex items-center justify-between w-full pt-4 gap-4">
+    <div class="flex items-center justify-between w-full pt-4 gap-4 max-sm:overflow-scroll">
       <Button :active="activeTab === 1" @click="activeTab = 1" class="w-full">
         Ціни та послуги
       </Button>
@@ -165,14 +165,14 @@ function SendForm() {
             v-for="item of advertisingAll"
             :key="item.id"
             @click="changeActiveAdvertising(item.id)"
-            class="flex items-center justify-between pb-5 border-b border-alias px-7 cursor-pointer"
+            class="flex items-center justify-between pb-5 border-b border-alias px-7 cursor-pointer max-sm:flex-col max-sm:items-start max-sm:gap-4"
         >
           <div class="flex items-start gap-4">
             <RadioButton :model-value="item.id === advertisingActive" />
             <div class="flex flex-col gap-1">
               <p class="text-headline">{{ item.title }}</p>
               <p
-                  class="text-subtitle text-naturals-100 leading-[1.1rem] font-euclid-light max-w-[39.5rem]"
+                  class="text-subtitle text-naturals-100 leading-[1.1rem] font-euclid-light max-w-[39.5rem] max-sm:max-w-[15rem]"
                   :class="item.id !== advertisingActive ? 'truncate' : ''"
               >
                 This is my behind the scenes package. If you're looking for chic, modern, well lit,
@@ -183,7 +183,7 @@ function SendForm() {
               </p>
             </div>
           </div>
-          <div class="flex flex-col gap-2">
+          <div class="flex flex-col gap-2 max-sm:flex-row max-sm:justify-between max-sm:w-full">
             <p class="text-headline font-euclid-bold">від {{ item.price }} грн</p>
             <ArrowLink text="замовити" v-if="item.id === advertisingActive" @click="showForm = true" />
           </div>
@@ -241,6 +241,46 @@ function SendForm() {
         <Button active @click="showFormSuccess = false">OK</Button>
       </Alert>
     </div>
-    <div v-if="activeTab === 2"></div>
+    <div v-if="activeTab === 2">
+      <div class="flex flex-col gap-4 pt-3">
+        <div class="flex items-center gap-7 pb-4 border-b border-alias max-sm:flex-col">
+          <img class="max-sm:w-full" src="@/public/images/news-6.png" alt="news" />
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between max-sm:flex-col max-sm:items-start">
+              <div class="flex items-center gap-2">
+                <img class="w-[2.12rem]" src="@/public/images/product-1.png" alt="png" />
+                <p class="text-subtitle">ДЕПАРТАМЕНТ ПО РОБОТІ З БЛОГЕРАМИ</p>
+              </div>
+              <p class="text-headline text-magenta-600">09 червня 2025 • 17:00 - 19:00</p>
+            </div>
+            <h3>Розвиток та Монетизація</h3>
+            <p class="text-body">
+              Creator Connect Summit – це унікальний захід, створений спеціально для блогерів, інфлюенсерів
+              та контент-мейкерів, які прагнуть масштабувати свою діяльність та ефективніше монетизувати свій вплив.
+            </p>
+            <ArrowLink text="докладніше" class="self-end" />
+          </div>
+        </div>
+        <div class="flex items-center gap-7 pb-4 border-b border-alias max-sm:flex-col">
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between max-sm:flex-col max-sm:items-start max-sm:gap-5">
+              <div class="flex items-center gap-2">
+                <img class="w-[2.12rem] rounded-full" src="@/public/images/bloger-1.png" alt="png" />
+                <p class="text-subtitle">Марія Ткаченко (@MashaVibe)</p>
+              </div>
+              <p class="text-headline text-magenta-600">09 червня 2025 • 17:00 - 19:00</p>
+            </div>
+            <h3>CocaColla Presentation party</h3>
+            <p class="text-body">
+              Запрошуємо вас на яскраву та смачну CocaCola Presentation Party — подію, де поєднуються стиль,
+              енергія та легендарний смак! Це більше, ніж просто вечірка — це святкування культового бренду з
+              презентацією новинок, інтерактивними активностями та яскравими емоціями. Вас чекає незабутня атмосфера,
+              музика, конкурси, фотозони та, звісно ж, багато улюбленої Coca-Cola!
+            </p>
+            <ArrowLink text="докладніше" class="self-end" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>

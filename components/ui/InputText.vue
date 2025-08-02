@@ -4,7 +4,8 @@ import { ref, watch } from 'vue'
 const props = defineProps<{
   label: string
   textPlaceholder: string
-  modelValue: string
+  modelValue: string,
+  text?: string
 }>()
 
 const emit = defineEmits<{
@@ -32,5 +33,6 @@ watch(localValue, (newVal) => {
         v-model="localValue"
         :placeholder="textPlaceholder"
     />
+    <p class="text-caption text-magenta-600" v-if="text">{{ text }}</p>
   </div>
 </template>
