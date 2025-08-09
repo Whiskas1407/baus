@@ -1,12 +1,21 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { computed } from 'vue'
+
+const router = useRouter()
+const route = useRoute()
+
+const goBack = () => {
+  if (window.history.length > 1) {
+    router.back()
+  } else {
+    router.push('/')
+  }
+}
 
 const resolvePath = (path: string, params: Record<string, any>) => {
   return path.replace(/:([^/]+)/g, (_, key) => params[key] || key)
 }
-
-const route = useRoute()
 
 const breadcrumbs = computed(() => {
   const matched = route.matched.map((match) => ({
@@ -26,9 +35,15 @@ const breadcrumbs = computed(() => {
 <template>
   <div class="flex max-sm:flex-col-reverse max-sm:gap-4 max-sm:items-start justify-between items-center py-3 px-10 max-sm:px-5 border-t border-b border-alias relative z-1 bg-magenta-950">
     <div class="flex items-center gap-4">
-      <img class="max-sm:hidden" src="/icons/arrow_left_icon.svg" alt="arrow" />
+      <img
+          class="max-sm:hidden cursor-pointer hover:opacity-80 transition"
+          src="/icons/arrow_left_icon.svg"
+          alt="arrow"
+          @click="goBack"
+      />
       <h2 class="max-sm:text-[1.25rem]">{{ breadcrumbs[breadcrumbs.length - 1]?.title }}</h2>
     </div>
+
     <nav class="text-subtitle">
       <span v-for="(crumb, index) in breadcrumbs" :key="index">
         <template v-if="index > 0"> / </template>
@@ -39,10 +54,7 @@ const breadcrumbs = computed(() => {
         >
           {{ crumb.title }}
         </NuxtLink>
-        <span
-            v-else
-            class="text-magenta-600"
-        >
+        <span v-else class="text-magenta-600">
           {{ crumb.title }}
         </span>
       </span>

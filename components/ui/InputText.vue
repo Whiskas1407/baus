@@ -6,6 +6,7 @@ const props = defineProps<{
   textPlaceholder: string
   modelValue: string,
   text?: string
+  type?: string
 }>()
 
 const emit = defineEmits<{
@@ -29,7 +30,7 @@ watch(localValue, (newVal) => {
     <input
         class="border text-body border-alias placeholder:text-naturals-400 rounded-[3.12rem] outline-none py-3 px-4"
         :class="{ 'border-magenta-600': localValue }"
-        type="text"
+        :type="type ? type : 'text'"
         v-model="localValue"
         :placeholder="textPlaceholder"
     />

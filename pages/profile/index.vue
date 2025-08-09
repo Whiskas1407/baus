@@ -119,7 +119,6 @@ const links = [
     <div v-if="activePage === 1">
       <div class="flex flex-col gap-5">
         <div class="flex items-center gap-4">
-          <img src="/icons/arrow_left_icon.svg" alt="arrow" />
           <div class="flex items-center gap-4">
             <img src="/icons/user_icon.svg" alt="user" />
             <p class="text-headline">Мої данні</p>

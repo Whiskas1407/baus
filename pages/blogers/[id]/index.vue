@@ -218,6 +218,7 @@ function SendForm() {
           <InputText
               :modelValue="form.contactPhone"
               @update:modelValue="form.contactPhone = $event"
+              :type="'number'"
               textPlaceholder="+38 XXX XXX XX XX"
               label="Контакт для зв'язку"
           />
