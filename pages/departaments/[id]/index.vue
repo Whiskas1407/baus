@@ -101,7 +101,7 @@ function changeTab(tab: number) {
 }
 </script>
 <template>
-  <div class="w-full flex flex-col items-center justify-center py-10 px-[16rem] max-sm:px-4 relative z-1">
+  <div class="w-full flex flex-col items-center justify-center py-10 px-[16rem] max-sm:px-4 max-sm:py-16 relative z-1">
     <div class="flex flex-col pb-8 border-b border-alias">
       <div class="flex items-center w-full justify-between max-sm:flex-col max-sm:items-start max-sm:gap-2">
         <div class="flex items-center gap-6 max-sm:flex-col max-sm:items-start">
@@ -163,7 +163,7 @@ function changeTab(tab: number) {
         <ArrowLink text="ПРОФІЛЬ БЛОГЕРА" />
       </NuxtLink>
     </div>
-    <div class="pt-7 flex items-center justify-between w-full max-sm:overflow-scroll">
+    <div class="pt-7 flex items-center justify-between w-full max-sm:overflow-scroll max-sm:gap-4">
       <Button :active="activeTab === 1" @click="changeTab(1)">
         Новини департаменту
       </Button>
@@ -176,6 +176,7 @@ function changeTab(tab: number) {
     </div>
     <div class="flex flex-col gap-4 pt-12 w-full">
       <NuxtLink
+          data-aos="fade-up"
           to="/departaments/id/news"
           class="group flex items-center w-full gap-8 border-b border-alias pb-4 cursor-pointer max-sm:flex-col"
           v-if="activeTab === 1"
@@ -190,6 +191,7 @@ function changeTab(tab: number) {
         </div>
       </NuxtLink>
       <NuxtLink
+          data-aos="fade-up"
           to="/departaments/id/party"
           class="group flex items-center gap-8 pb-4 border-b border-alias max-sm:flex-col"
           v-if="activeTab === 2"
@@ -239,6 +241,7 @@ function changeTab(tab: number) {
       <div
           v-if="activeTab === 3"
           v-for="item of 5"
+          data-aos="fade-up"
           class="group flex items-center w-full justify-between border-b border-alias pb-4"
       >
         <div class="flex items-center gap-5">

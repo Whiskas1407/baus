@@ -58,6 +58,16 @@
     }
 }
 
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE и Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;  /* Chrome, Safari, Edge */
+    }
+}
+
 
 @theme {
     --font-euclid: "EuclidCircular-Regular", sans-serif;
@@ -110,4 +120,14 @@
     --color-effects-blueShadow: #3071FF;
     --color-alias: #700D69;
     --color-icon: #1D0925BF;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }

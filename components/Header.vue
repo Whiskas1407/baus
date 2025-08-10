@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { useProfileStore } from '../stores/profile'
+
+const profileStore = useProfileStore()
+</script>
 <template>
   <header class="flex justify-between items-center py-3 px-10 max-sm:px-5 bg-magenta-950 relative z-1">
     <div class="w-22 max-sm:hidden"></div>
@@ -5,7 +10,7 @@
     <div class="flex items-center gap-6">
       <img class="w-[2rem]" src="/icons/search_icon.svg" alt="search" />
       <NuxtLink to="/profile">
-        <img class="w-[2rem]" src="/icons/user_icon.svg" alt="user" />
+        <img @click="profileStore.setActivePage(0)" class="w-[2rem]" src="/icons/user_icon.svg" alt="user" />
       </NuxtLink>
     </div>
   </header>

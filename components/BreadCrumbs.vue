@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { computed } from 'vue'
+import { useProfileStore } from '../stores/profile'
 
-const router = useRouter()
+const profileStore = useProfileStore()
 const route = useRoute()
-
-const goBack = () => {
-  if (window.history.length > 1) {
-    router.back()
-  } else {
-    router.push('/')
-  }
-}
 
 const resolvePath = (path: string, params: Record<string, any>) => {
   return path.replace(/:([^/]+)/g, (_, key) => params[key] || key)
@@ -39,7 +32,7 @@ const breadcrumbs = computed(() => {
           class="max-sm:hidden cursor-pointer hover:opacity-80 transition"
           src="/icons/arrow_left_icon.svg"
           alt="arrow"
-          @click="goBack"
+          @click="profileStore.profileBackPage(0)"
       />
       <h2 class="max-sm:text-[1.25rem]">{{ breadcrumbs[breadcrumbs.length - 1]?.title }}</h2>
     </div>

@@ -103,7 +103,7 @@ function SendForm() {
 
 </script>
 <template>
-  <div class="w-full relative z-1 flex flex-col items-start justify-center py-8 px-[16rem] max-sm:px-4 gap-5">
+  <div class="w-full relative z-1 flex flex-col items-start justify-center py-8 px-[16rem] max-sm:px-4 gap-5 max-sm:items-center">
     <div class="flex items-end gap-9 max-sm:flex-col max-sm:items-center">
       <img src="@/public/images/bloger-avatar.png" alt="avatar" />
       <div class="flex flex-col items-start justify-start gap-2 max-sm:flex-col max-sm:items-center max-sm:gap-4">
@@ -162,6 +162,7 @@ function SendForm() {
       </div>
       <div class="flex flex-col w-full pt-8 gap-5">
         <div
+            data-aos="fade-up"
             v-for="item of advertisingAll"
             :key="item.id"
             @click="changeActiveAdvertising(item.id)"
@@ -192,7 +193,7 @@ function SendForm() {
       <Alert :model-value="showForm">
         <div class="flex flex-col items-start gap-5">
           <div class="flex items-start justify-between w-full gap-4">
-            <div class="flex flex-col items-start gap-2 w-[24rem]">
+            <div class="flex flex-col items-start gap-2 w-[24rem] max-sm:w-full">
               <p class="text-headline">Реклама в сторіс (1-2 слайди)</p>
               <p class="text-subtitle leading-[1.1rem]">
                 This is my behind the scenes package. If you're looking for chic, modern, well lit, clean,
@@ -244,7 +245,7 @@ function SendForm() {
     </div>
     <div v-if="activeTab === 2">
       <div class="flex flex-col gap-4 pt-3">
-        <div class="flex items-center gap-7 pb-4 border-b border-alias max-sm:flex-col">
+        <div data-aos="fade-up" class="flex items-center gap-7 pb-4 border-b border-alias max-sm:flex-col">
           <img class="max-sm:w-full" src="@/public/images/news-6.png" alt="news" />
           <div class="flex flex-col gap-2">
             <div class="flex items-center justify-between max-sm:flex-col max-sm:items-start">
@@ -262,7 +263,7 @@ function SendForm() {
             <ArrowLink text="докладніше" class="self-end" />
           </div>
         </div>
-        <div class="flex items-center gap-7 pb-4 border-b border-alias max-sm:flex-col">
+        <div data-aos="fade-up" class="flex items-center gap-7 pb-4 border-b border-alias max-sm:flex-col">
           <div class="flex flex-col gap-2">
             <div class="flex items-center justify-between max-sm:flex-col max-sm:items-start max-sm:gap-5">
               <div class="flex items-center gap-2">

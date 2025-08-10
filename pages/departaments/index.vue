@@ -72,6 +72,7 @@ let items = [
 <template>
   <div class="w-full flex flex-col items-center justify-center py-8 px-[16rem] max-sm:px-4 gap-5">
     <NuxtLink
+        data-aos="fade-up"
         v-for="item of items"
         :key="item.id"
         to="/departaments/id"

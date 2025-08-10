@@ -2,7 +2,9 @@
 import {ref} from 'vue'
 import Button from "../../components/ui/Button.vue";
 import InputSelect from "../../components/ui/InputSelect.vue";
+import { useProfileStore } from '../../stores/profile'
 
+const profileStore = useProfileStore()
 definePageMeta({
   title: 'Особистий кабінет'
 })
@@ -12,7 +14,7 @@ let selectText = ref('')
 <template>
   <div class="w-full relative z-1 flex flex-col items-start justify-center py-11 px-[16.3rem] gap-5">
     <div class="flex items-center gap-4">
-      <img src="/icons/arrow_left_icon.svg" alt="arrow" />
+      <img class="cursor-pointer" @click="profileStore.profileBackPage(1)" src="/icons/arrow_left_icon.svg" alt="arrow" />
       <div class="flex items-center gap-4">
         <img src="/icons/category_icon.svg" alt="category" />
         <p class="text-headline">Додаткова інформація</p>

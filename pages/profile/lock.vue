@@ -2,6 +2,9 @@
 import RadioButton from "../../components/ui/RadioButton.vue";
 import {ref} from 'vue'
 import SwitchToggle from "../../components/ui/SwitchToggle.vue";
+import { useProfileStore } from '../../stores/profile'
+
+const profileStore = useProfileStore()
 definePageMeta({
   title: 'Особистий кабінет'
 })
@@ -14,7 +17,7 @@ let hideCity = ref(false)
 <template>
   <div class="w-full relative z-1 flex flex-col items-start justify-center py-11 px-[16.3rem] gap-5">
     <div class="flex items-center gap-4">
-      <img src="/icons/arrow_left_icon.svg" alt="arrow" />
+      <img class="cursor-pointer" @click="profileStore.profileBackPage(1)" src="/icons/arrow_left_icon.svg" alt="arrow" />
       <div class="flex items-center gap-4">
         <img src="/icons/lock_icon.svg" alt="doc" />
         <p class="text-headline">Приватніть</p>
